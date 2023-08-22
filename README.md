@@ -9,4 +9,22 @@ This package allows us to specify the stock tickers we are interested in, and th
 
 This is a work in progress. The goal is to make this available via pip install. I created the ts_auth0 package to facilitate easy Tradestation authentication and it turned out to be really useful to have that part of the Tradestation process be available via a simple "pip install ts_auth0". I never have to think about the details of authentication again.
 
+## Running ts_data
+ts_data.py can be run in foreground or background. Better yet, on Ubuntu it can be run as a service.
 
+TODO: Complete these instructions.
+See https://medium.com/codex/setup-a-python-script-as-a-service-through-systemctl-systemd-f0cc55a42267
+
+Example service template:
+
+```
+[Unit]
+Description=Tradestation Data Service
+After=multi-user.target
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/python3 /home/<username>/td.py
+[Install]
+WantedBy=multi-user.target
+```
